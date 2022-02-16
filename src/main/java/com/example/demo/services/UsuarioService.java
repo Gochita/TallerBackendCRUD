@@ -35,7 +35,7 @@ public class UsuarioService {
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
-
+    //metodo para eliminar usuario
     public boolean eliminarUsuario(Long id) {
         try {
             usuarioRepository.deleteById(id);
