@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service
+@Service    //etiqueta que indica que la clase corresponde a un servicio
 public class UsuarioService {
-    @Autowired
+    @Autowired //etiqueta que busca el objeto usuario que implementa la interfazpar hacer referencia a el
     UsuarioRepository usuarioRepository;
 
     //Metodo para traer todos los usuarios
@@ -35,7 +35,7 @@ public class UsuarioService {
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
-    //metodo para eliminar usuario
+    //metodo para eliminar usuario por id
     public boolean eliminarUsuario(Long id) {
         try {
             usuarioRepository.deleteById(id);

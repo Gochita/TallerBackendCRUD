@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuario") //Define la ruta donde se van a encontrar los usuarios
 public class UsuarioController {
-    @Autowired
+    @Autowired //etiqueta que busca el objeto usuario que implementa la interfazpar hacer referencia a el
     UsuarioService usuarioService;
 
     @GetMapping
@@ -26,22 +26,23 @@ public class UsuarioController {
         return this.usuarioService.guardarUsuario(usuario);
     }
 
-    @GetMapping(path="/{id}")
-    public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id")Long id){
+    @GetMapping(path = "/{id}")
+    public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id") Long id) {
         return this.usuarioService.obtenerPorId(id);
     }
 
     @GetMapping("/query")
-    public ArrayList<UsuarioModel> obtenerUsuarioPorId(@RequestParam("prioridad")Integer prioridad){
+    public ArrayList<UsuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad) {
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
-    @DeleteMapping(path ="/{id}")
-    public String eliminarPorId(@PathVariable("id")Long id){
-        boolean ok= this.usuarioService.eliminarUsuario(id);
-        if(ok){
-            return "Se elimino el usuario con id "+ id;
-        }else{
-            return "No se pudo eliminar el usuario con id "+id;
+
+    @DeleteMapping(path = "/{id}")
+    public String eliminarPorId(@PathVariable("id") Long id) {
+        boolean ok = this.usuarioService.eliminarUsuario(id);
+        if (ok) {
+            return "Se elimino el usuario con id " + id;
+        } else {
+            return "No se pudo eliminar el usuario con id " + id;
         }
 
 
