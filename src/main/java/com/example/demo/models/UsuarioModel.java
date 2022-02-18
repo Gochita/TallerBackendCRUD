@@ -60,4 +60,14 @@ public class UsuarioModel {
         this.prioridad = prioridad;
     }
 
+    @Override
+    public String toString() {
+        return "UsuarioModel{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", email='" + email + '\'' +
+                ", prioridad=" + prioridad +
+                '}';
+    }
 }

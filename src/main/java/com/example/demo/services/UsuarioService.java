@@ -35,6 +35,21 @@ public class UsuarioService {
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
+    //metodo para traer todos los usuarios con cierto nombre
+    public ArrayList<UsuarioModel> obtenerPorNombre(String nombre) {
+        return usuarioRepository.findByNombre(nombre);
+    }
+
+    //Metodo para traer los datos de un usuario con cierto email
+    public ArrayList<UsuarioModel> obtenerPorEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
+
+    //Metodo para traer los datos de un usuario con cierto apellido
+    public ArrayList<UsuarioModel> obtenerPorApellido(String apellido) {
+        return usuarioRepository.findByApellido(apellido);
+    }
+
     //metodo para eliminar usuario por id
     public boolean eliminarUsuario(Long id) {
         try {
@@ -46,4 +61,6 @@ public class UsuarioService {
 
         }
     }
+
+
 }
